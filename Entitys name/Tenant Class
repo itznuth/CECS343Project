@@ -1,4 +1,4 @@
-TENANT
+'''TENANT
 Attributes
 name (str): Stores the name of the tenant.
 space_number (int): Indicates the store number occupied by the tenant.
@@ -12,4 +12,4 @@ set_lease_start_date(date: str) -> None: Sets the start date of the tenant's lea
 get_lease_start_date() -> str: Retrieves the start date of the tenant's lease.
 set_lease_end_date(date: str) -> None: Sets the end date of the tenant’s lease.
 get_lease_end_date() -> str: Retrieves the end date of the tenant’s
-set_contact_information(information:str)-> None: Assigns the information of tenant’s personal information
+set_contact_information(information:str)-> None: Assigns the information of tenant’s personal information'''
