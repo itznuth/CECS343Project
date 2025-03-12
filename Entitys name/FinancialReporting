@@ -1,0 +1,8 @@
+'''Attributes
+total_revenue() -> float: Retrieves total amount income 
+Total_sales() -> float: Retrieves total amount of sales made
+sales_date() -> str: Retrieves the sales date
+Methods
+get_sales_date()-> str: lists the date of all sales made throughout the mall
+calculate_annual_revenue() -> float: Calculates the annual revenue based on tenant payments
+'''
