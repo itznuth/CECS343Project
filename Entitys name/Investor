@@ -1,0 +1,8 @@
+'''Attributes
+name(str): Stores the name of the investor.
+contact_information(str): Indicates investor’s personal information.
+Methods
+set_name(name: str) -> None: Sets the name of the investor.
+set_contact_information(information:str)-> None: Assigns the information of investors’s personal information
+review_financial_reports() -> Analyze mall revenue
+'''
