@@ -1,0 +1,10 @@
+"""
+Attributes
+name(str): Stores the name of the customer.
+contact_information(str): Indicates customer’s personal information.
+feedback(list): Feedback or complaints submitted
+Methods
+set_name(name: str) -> None: Sets the name of the customer.
+set_contact_information(information:str)-> None: Assigns the information of tenant’s personal information
+browse_store() -> View available stores in the mall
+"""
