@@ -1,0 +1,9 @@
+"""
+Attributes
+total_visitors(int): store the total number of visitors
+visitor_times(int): includes the time when visitors are at the mall
+Methods
+get_total_visitors()-> int: Retrieves the total number of visitors currently in the mall.
+increment_visitor_count()-> None: increase the visitor count
+decrement_visitor_count()-> None: decrease the visitor count
+"""
