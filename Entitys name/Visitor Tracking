@@ -1,9 +1,14 @@
-"""
-Attributes
-total_visitors(int): store the total number of visitors
-visitor_times(int): includes the time when visitors are at the mall
-Methods
-get_total_visitors()-> int: Retrieves the total number of visitors currently in the mall.
-increment_visitor_count()-> None: increase the visitor count
-decrement_visitor_count()-> None: decrease the visitor count
-"""
+
+class VisitorTracking:
+    """Tracks the number of visitors in the mall.
+
+    Attributes:
+        total_visitors (int): Stores the total number of visitors currently in the mall.
+        visitor_times (list): Stores timestamps of visitor entries.
+
+    Methods:
+        get_total_visitors() -> int: Retrieves the total number of visitors.
+        increment_visitor_count(time: str) -> None: Increases the visitor count and logs the time.
+        decrement_visitor_count() -> None: Decreases the visitor count if greater than zero.
+    """
+pass
