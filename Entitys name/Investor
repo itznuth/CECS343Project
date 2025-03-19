@@ -1,8 +1,11 @@
-'''Attributes
-name(str): Stores the name of the investor.
-contact_information(str): Indicates investor’s personal information.
-Methods
-set_name(name: str) -> None: Sets the name of the investor.
-set_contact_information(information:str)-> None: Assigns the information of investors’s personal information
-review_financial_reports() -> Analyze mall revenue
-'''
+
+class Investor:
+    """Represents an investor in the mall.
+
+    Attributes:
+        investment_amount (float): The amount the investor has put into the mall.
+
+    Methods:
+        review_financial_reports() -> str: Analyzes mall revenue and provides feedback.
+    """
+pass
