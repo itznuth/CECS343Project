@@ -1,23 +1,28 @@
-"""
-Attributes
-request_id (int): Unique identifier for the maintenance request
-tenant_id (int): Identifier for the tenant making the request
-maintenance_type (str): Type of maintenance requested
-request_date (str): Date when the maintenance request was submitted
-status (str): Indicates the status of the request(pending, in progress, completed)
-resolution _date (str): Date when the maintenance request was resolved
-Methods
-assigned_personnell() -> str: assigns a worker to a certain job
-set_request_id(request_id: int) -> None: Assigns a unique identifier to the maintenance request
-get_request_id() -> int: Retrieves the request ID
-set_tenant_id(tenant_id: int) -> None: Associates the request with a tenant
-get_tenant_id() -> int: Retrieves the tenant ID associated with the request
-set_maintenance_type (type: str): -> None: Sets the type of maintenance requested
-get_maintenance_type() -> str: Retrieves the type of maintenance requested
-set_request_date(date: str) -> None: Sets the date of the request submission
-get_request_date() -> str: Retrieves the date of the request submission
-set_status(status: str) ->None: Updates the status of the maintenance request
-get_status() -> str: Retrieves the status of the maintenance request
-set_resolution_date(date: str) -> None: Sets the  resolution date of the maintenance request
-get_resolution_date() -> str: Retrieves the resolution date of the maintenance request
-"""
+
+class FacilityMaintenance:
+    """Represents a facility maintenance request in the mall.
+
+    Attributes:
+        request_id (int): Unique identifier for the maintenance request.
+        tenant_id (int): Identifier for the tenant making the request.
+        maintenance_type (str): Type of maintenance requested.
+        request_date (str): Date when the maintenance request was submitted.
+        status (str): Status of the request (pending, in progress, completed).
+        resolution_date (str): Date when the maintenance request was resolved.
+
+    Methods:
+        assign_personnel(worker_name: str) -> str: Assigns a worker to the job.
+        set_request_id(request_id: int) -> None: Assigns a unique request ID.
+        get_request_id() -> int: Retrieves the request ID.
+        set_tenant_id(tenant_id: int) -> None: Associates the request with a tenant.
+        get_tenant_id() -> int: Retrieves the tenant ID.
+        set_maintenance_type(type: str) -> None: Sets the maintenance type.
+        get_maintenance_type() -> str: Retrieves the maintenance type.
+        set_request_date(date: str) -> None: Sets the request date.
+        get_request_date() -> str: Retrieves the request date.
+        set_status(status: str) -> None: Updates the request status.
+        get_status() -> str: Retrieves the request status.
+        set_resolution_date(date: str) -> None: Sets the resolution date.
+        get_resolution_date() -> str: Retrieves the resolution date.
+    """
+pass
