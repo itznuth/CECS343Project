@@ -1,15 +1,20 @@
-"""
-Attributes
-payment amount(float): Indicates the payment amount for the store
-payment_date (str): The date on which the payment was made
-rental_unit (int): The unit number for which the payment was made
-payment_status (str): Indicates if the payment is completed, pending, or overdue
-Methods
-set_payment_amount(float)->None: Sets the payment amount
-get_payment_amount() -> float: Retrieves the payment amount
-set_payment_date(date: str) -> None: Sets the date of the payment
-set_rental_unit(unit: int) -> None: Sets the rental unit associated with the payment
-get_rental_unit() -> int: Retrieves the rental unit number
-set_payment_status(status: str) -> None: Updates the status of the payment
-get_payment_status() -> str: Retrieves the status of the payment
-"""
+
+class RentalPayment:
+    """Represents a rental payment for a store unit in the mall.
+
+    Attributes:
+        payment_amount (float): The payment amount for the store.
+        payment_date (str): The date when the payment was made.
+        rental_unit (int): The unit number for which the payment was made.
+        payment_status (str): The status of the payment (completed, pending, or overdue).
+
+    Methods:
+        set_payment_amount(amount: float) -> None: Sets the payment amount.
+        get_payment_amount() -> float: Retrieves the payment amount.
+        set_payment_date(date: str) -> None: Sets the payment date.
+        set_rental_unit(unit: int) -> None: Sets the rental unit number.
+        get_rental_unit() -> int: Retrieves the rental unit number.
+        set_payment_status(status: str) -> None: Updates the payment status.
+        get_payment_status() -> str: Retrieves the payment status.
+    """
+pass
