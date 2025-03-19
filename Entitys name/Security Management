@@ -1,5 +1,5 @@
 
-class Security_Management:
+class SecurityManagement:
 """Represent Security management class.
 
 Attributes:
