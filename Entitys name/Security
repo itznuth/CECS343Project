@@ -1,12 +1,14 @@
-'''
-Attributes
-name(str) -> stores the name of the security 
-location(str) -> stores the location of the security
-contact_information(str) → Indicates the security’s personal information
-Methods
-set_name(name:str) -> None: sets the name of the security
-get_name() -> str: Retrieves the security personnel’s name
-log_incident(incident_details: str) -> none: Record details of a security incident
-set_location(location: str) -> None: Assigns a security location
-get_location() -> str: Retrieves assigned locations
-'''
+
+class Security:
+    """Represents security management.
+
+    Attributes:
+        location (str): Stores the location of security personnel or system.
+        incident_log (list): Keeps a record of logged security incidents.
+
+    Methods:
+        log_incident(incident_details: str) -> None: Records details of a security incident.
+        set_location(location: str) -> None: Assigns a security location.
+        get_location() -> str: Retrieves the assigned location.
+    """
+pass
