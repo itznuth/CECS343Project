@@ -1,1 +1,16 @@
 
+class Store:
+    """Represents a store unit in the mall.
+
+    Attributes:
+        number (int): The unique identifier or number of the store.
+        floor (int): The floor on which the store is located.
+        rent_amount (float): The monthly rent amount for the store.
+
+    Methods:
+        set_store_number(number: int) -> None: Sets the store number.
+        set_rent_amount(amount: float) -> None: Sets the monthly rent amount.
+        get_rent_amount() -> float: Retrieves the monthly rent amount.
+        get_floor() -> int: Retrieves the floor on which the store is located.
+    """
+pass
