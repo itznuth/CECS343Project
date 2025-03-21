@@ -17,9 +17,10 @@ class Tenant:
   pass
 
 
-
+'''This class will represent the tenant in our mall management system'''
 class Tenant:
     def __init__(self,name:str,space_number:int,lease_start_date:str,lease_end_date:str,contact_information:str):
+        '''This initializes the tenant object with their basic details and contact information'''
         set_name = self.name
         set_store_number = self.space_number
         set_lease_start_date = self.lease_start_date
@@ -27,7 +28,7 @@ class Tenant:
         set_contact_information = self.contact_information
 
 
-
+  
     def set_name(self,name:str) -> None :
         set_name = self.name
 
@@ -50,3 +51,5 @@ class Tenant:
 
     def get_lease_end_date(self) -> str:
         return self.set_lease_end_date
+
+
