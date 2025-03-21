@@ -52,9 +52,11 @@ class Tenant:
 
 
     def get_lease_start_date(self) -> str:
+        '''retrieves and returns the lease start date'''
         return self.set_lease_start_date
 
     def get_lease_end_date(self) -> str:
+        '''retrieves and returns the lease end date'''
         return self.set_lease_end_date
 
 
