@@ -30,18 +30,23 @@ class Tenant:
 
   
     def set_name(self,name:str) -> None :
+    '''sets the name of the tenant'''
         set_name = self.name
 
     def set_store_number(self,store_number:int) -> None:
+        '''Assigns the store number of the tenant'''
         set_store_number = self.space_number
 
     def set_lease_start_date(self,lease_start_date:str) -> None:
+        '''sets the start date of the tenant's lease'''
         set_lease_start_date = self.lease_start_date
 
     def set_lease_end_date(self,lease_end_date:str) -> None:
+        '''sets the end date of the tenant's lease'''
         set_lease_end_date = self.lease_end_date
 
     def set_contact_information(self,contact_information:str) -> None:
+        '''sets the tenant's contact information'''
         set_contact_information = self.contact_information
 
 
