@@ -18,3 +18,23 @@ class RentalPayment:
         get_payment_status() -> str: Retrieves the payment status.
     """
 pass
+    def __init__(self, payment_amount: float, payment_date: str, rental_unit: int, payment_status: str):
+        self.payment_amount = payment_amount
+        self.payment_date = payment_date
+        self.rental_unit = rental_unit
+        self.payment_status = payment_status
+
+    def set_payment_amount(self, amount: float) -> None:
+        self.payment_amount = amount
+    def get_payment_amount(self) -> float:
+        return self.payment_amount
+    def set_payment_date(self, date: str) -> None:
+        self.payment_date = date
+    def set_rental_unit(self, unit: int) -> None:
+        self.rental_unit = unit
+    def get_rental_unit(self) -> int:
+        return self.rental_unit
+    def set_payment_status(self, status: str) -> None:
+        self.payment_status = status
+    def get_payment_status(self) -> str:
+        return self.payment_status
