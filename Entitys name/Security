@@ -1,4 +1,3 @@
-
 class Security:
     """Represents security management.
 
@@ -11,4 +10,20 @@ class Security:
         set_location(location: str) -> None: Assigns a security location.
         get_location() -> str: Retrieves the assigned location.
     """
-pass
+
+    def __init__(self, location: str = "Unknown"):
+        """Initializes Security with a location and an empty incident log."""
+        self.location = location
+        self.incident_log = []
+
+    def log_incident(self, incident_details: str) -> None:
+        """Records details of a security incident."""
+        self.incident_log.append(incident_details)
+
+    def set_location(self, location: str) -> None:
+        """Assigns a security location."""
+        self.location = location
+
+    def get_location(self) -> str:
+        """Retrieves the assigned location."""
+        return self.location
