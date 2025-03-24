@@ -14,3 +14,7 @@ class Store:
         get_floor() -> int: Retrieves the floor on which the store is located.
     """
 pass
+
+'''This class is used to represent a store unit in the mall'''
+class Store:
+    def__init__(self,
