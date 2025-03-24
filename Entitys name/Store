@@ -17,4 +17,9 @@ pass
 
 '''This class is used to represent a store unit in the mall'''
 class Store:
-    def__init__(self,
+    def__init__(self,number:int,floor:int,rent_amount:float):
+         set_number=self.number
+         set_floor=self.number
+         set_rent_amount=self.rent_amount
+
+    def set_number(self.number)->None
