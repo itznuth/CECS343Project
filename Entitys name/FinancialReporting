@@ -12,3 +12,38 @@ class FinancialReporting:
         calculate_annual_revenue() -> float: Calculates the annual revenue based on tenant payments and sales.
     """
 pass
+
+
+class FinancialReporting:
+    '''
+    A class used to represent financial reporting data for the property; including, renevue and sales tracking 
+    '''
+    def __init__(self,total_renevue:float,total_sales:float,sales_date:str):
+        '''
+        initializes a FinancialReporting object
+        '''
+        total_renevue=self.total_renevue
+        total_sales = self.total_sales
+        sales_date = self.sales_date
+
+
+
+    def get_sales_date(self):
+        '''
+        Retrieves the sales date 
+        '''
+        return self.sales_date
+
+    def get_renevue(self,total_renevue: float):
+        '''
+        Calculates the renevue and returns it
+        '''
+        return total_renevue
+    
+    
+        
+
+
+
+
+
