@@ -1,28 +1,52 @@
-
 class FacilityMaintenance:
-    """Represents a facility maintenance request in the mall.
+    """Represents a facility maintenance request in the mall."""
 
-    Attributes:
-        request_id (int): Unique identifier for the maintenance request.
-        tenant_id (int): Identifier for the tenant making the request.
-        maintenance_type (str): Type of maintenance requested.
-        request_date (str): Date when the maintenance request was submitted.
-        status (str): Status of the request (pending, in progress, completed).
-        resolution_date (str): Date when the maintenance request was resolved.
+    def __init__(self, request_id: int, tenant_id: int, maintenance_type: str, 
+                 request_date: str, status: str = "pending", resolution_date: str = ""):
+        self.request_id = request_id
+        self.tenant_id = tenant_id
+        self.maintenance_type = maintenance_type
+        self.request_date = request_date
+        self.status = status
+        self.resolution_date = resolution_date
+        self.assigned_personnel = None
 
-    Methods:
-        assign_personnel(worker_name: str) -> str: Assigns a worker to the job.
-        set_request_id(request_id: int) -> None: Assigns a unique request ID.
-        get_request_id() -> int: Retrieves the request ID.
-        set_tenant_id(tenant_id: int) -> None: Associates the request with a tenant.
-        get_tenant_id() -> int: Retrieves the tenant ID.
-        set_maintenance_type(type: str) -> None: Sets the maintenance type.
-        get_maintenance_type() -> str: Retrieves the maintenance type.
-        set_request_date(date: str) -> None: Sets the request date.
-        get_request_date() -> str: Retrieves the request date.
-        set_status(status: str) -> None: Updates the request status.
-        get_status() -> str: Retrieves the request status.
-        set_resolution_date(date: str) -> None: Sets the resolution date.
-        get_resolution_date() -> str: Retrieves the resolution date.
-    """
-pass
+    def assign_personnel(self, worker_name: str) -> str:
+        self.assigned_personnel = worker_name
+        return f"Maintenance task assigned to {worker_name}"
+
+    def set_request_id(self, request_id: int) -> None:
+        self.request_id = request_id
+
+    def get_request_id(self) -> int:
+        return self.request_id
+
+    def set_tenant_id(self, tenant_id: int) -> None:
+        self.tenant_id = tenant_id
+
+    def get_tenant_id(self) -> int:
+        return self.tenant_id
+
+    def set_maintenance_type(self, type: str) -> None:
+        self.maintenance_type = type
+
+    def get_maintenance_type(self) -> str:
+        return self.maintenance_type
+
+    def set_request_date(self, date: str) -> None:
+        self.request_date = date
+
+    def get_request_date(self) -> str:
+        return self.request_date
+
+    def set_status(self, status: str) -> None:
+        self.status = status
+
+    def get_status(self) -> str:
+        return self.status
+
+    def set_resolution_date(self, date: str) -> None:
+        self.resolution_date = date
+
+    def get_resolution_date(self) -> str:
+        return self.resolution_date
