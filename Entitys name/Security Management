@@ -1,12 +1,29 @@
-
 class SecurityManagement:
-"""Represent Security management class.
+    """Represents security management.
 
-Attributes:
-  location(str): stores the location of the security.
+    Attributes:
+        location (str): Stores the location of the security.
+        incident_log (list): Keeps a record of logged security incidents.
 
-Methods:
-  log_incident(incident_details: str) -> none: Record details of a security incident.
-  set_location(location: str) -> None: Assigns a security location.
-  get_location() -> str: Retrieves assigned locations.
-"""
+    Methods:
+        log_incident(incident_details: str) -> None: Records details of a security incident.
+        set_location(location: str) -> None: Assigns a security location.
+        get_location() -> str: Retrieves the assigned location.
+    """
+
+    def __init__(self, location: str = "Unknown"):
+        """Initializes SecurityManagement with a location and an empty incident log."""
+        self.location = location
+        self.incident_log = []
+
+    def log_incident(self, incident_details: str) -> None:
+        """Records details of a security incident."""
+        self.incident_log.append(incident_details)
+
+    def set_location(self, location: str) -> None:
+        """Assigns a security location."""
+        self.location = location
+
+    def get_location(self) -> str:
+        """Retrieves the assigned location."""
+        return self.location
