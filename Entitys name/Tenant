@@ -59,4 +59,22 @@ class Tenant:
         '''retrieves and returns the lease end date'''
         return self.set_lease_end_date
 
+    def get_contact_information(self) -> str:
+        '''
+        Returns the contact information of the tenant.
+        '''
+        return self.set_contact_information
+
+    def get_name(self) -> str:
+        '''
+        Returns the name of the tenant.
+        '''
+        return self.set_name
+
+    def get_store_number(self) -> str:
+        '''
+        Returns the store number of the tenant.
+        '''
+        return self.set_space_number
+
 
