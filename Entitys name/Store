@@ -22,4 +22,16 @@ class Store:
          set_floor=self.number
          set_rent_amount=self.rent_amount
 
-    def set_number(self.number)->None
+    def set_number(self.number)->None:
+    '''sets the number of the store'''
+         set_number=self.number
+
+    def set_floor(self.floor)->None:
+    '''sets the floor of the store'''
+         set_floor=self.floor
+
+    def set_rent_amount(self.rent_amount)->None:
+    '''sets the rent amount of the store'''
+         set_rent_amount=self.rent_amount
+
+    def get_rent_amount
