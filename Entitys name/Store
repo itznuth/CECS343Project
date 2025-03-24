@@ -31,7 +31,14 @@ class Store:
          set_floor=self.floor
 
     def set_rent_amount(self.rent_amount)->None:
-    '''sets the rent amount of the store'''
+    '''sets the monthly rent amount of the store'''
          set_rent_amount=self.rent_amount
 
-    def get_rent_amount
+    def get_rent_amount(self)->float:
+    '''retrieves the monthly rent amount'''
+         return self.rent_amount
+
+    def get_floor(self)->int:
+    '''Retrieves the floor on which the store is located.'''
+         return self.floor
+
