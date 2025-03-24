@@ -12,3 +12,21 @@ class VisitorTracking:
         decrement_visitor_count() -> None: Decreases the visitor count if greater than zero.
     """
 pass
+
+class VisitorTracking:
+'''This class used to track the number of visitors in the mall'''
+
+    def__init__(self,total_visitors:int, visitor_times:list):
+        set_total_visitors=self.total_visitors
+        set_visitor_times=self.visitor_times
+
+    def get_total_visitors(self)->int:
+    '''Retrieves the total number of visitors.'''
+        return self.total_visitors
+
+    def increment_visitor_count(time)->None:
+    '''Increases the visitor count and logs the time.'''
+
+    def decrement_visitor_count()->None:
+    '''Decreases the visitor count if greater than zero.'''
+
