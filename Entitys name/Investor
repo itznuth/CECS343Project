@@ -40,6 +40,21 @@ class Investor:
 
     def review_financial_reports(self):
         ''' 
-        Creates a statement keeping track of who is reviewing financial reports.'''
+        Creates a statement keeping track of who is reviewing financial reports.
+        '''
         print(f"{self.name} is reviewing the financial reports")
+
+
+    def get_contact_information(self):
+        '''
+        Returns the contact information of the Investor.
+        '''
+        return self.set_contact_information
+    
+    
+    def get_name(self):
+        ''' 
+        Returns the name of the Investor.
+        '''
+        return self.set_name
 
