@@ -1,80 +1,58 @@
-
 class Tenant:
-  """Represents Tenant class.
+    """Represents a tenant in the mall management system.
 
-  Attributes
-    space_number (int): Indicates the store number occupied by the tenant.
-    lease_start_date (str): Represents the start date of the tenant's lease.
-    lease_end_date(str): Represents the end date of the tenant’s name.
+    Attributes:
+        name (str): The name of the tenant.
+        space_number (int): The store number occupied by the tenant.
+        lease_start_date (str): The start date of the tenant's lease.
+        lease_end_date (str): The end date of the tenant's lease.
+        contact_information (str): Contact details for the tenant.
+    """
 
-  Methods:
-    set_store_number(number: int) -> None: Assigns the store number to the tenant.
-    set_lease_start_date(date: str) -> None: Sets the start date of the tenant's lease.
-    get_lease_start_date() -> str: Retrieves the start date of the tenant's lease.
-    set_lease_end_date(date: str) -> None: Sets the end date of the tenant’s lease.
-    get_lease_end_date() -> str: Retrieves the end date of the tenant’s.
-  """
-  pass
+    def __init__(self, name: str, space_number: int, lease_start_date: str, 
+                 lease_end_date: str, contact_information: str):
+        self.name = name
+        self.space_number = space_number
+        self.lease_start_date = lease_start_date
+        self.lease_end_date = lease_end_date
+        self.contact_information = contact_information
 
+    def set_name(self, name: str) -> None:
+        """Sets the name of the tenant."""
+        self.name = name
 
-'''This class will represent the tenant in our mall management system'''
-class Tenant:
-    def __init__(self,name:str,space_number:int,lease_start_date:str,lease_end_date:str,contact_information:str):
-        '''This initializes the tenant object with their basic details and contact information'''
-        set_name = self.name
-        set_store_number = self.space_number
-        set_lease_start_date = self.lease_start_date
-        set_lease_end_date = self.lease_end_date
-        set_contact_information = self.contact_information
+    def set_store_number(self, store_number: int) -> None:
+        """Assigns the store number of the tenant."""
+        self.space_number = store_number
 
+    def set_lease_start_date(self, lease_start_date: str) -> None:
+        """Sets the start date of the tenant's lease."""
+        self.lease_start_date = lease_start_date
 
-  
-    def set_name(self,name:str) -> None :
-    '''sets the name of the tenant'''
-        set_name = self.name
+    def set_lease_end_date(self, lease_end_date: str) -> None:
+        """Sets the end date of the tenant's lease."""
+        self.lease_end_date = lease_end_date
 
-    def set_store_number(self,store_number:int) -> None:
-        '''Assigns the store number of the tenant'''
-        set_store_number = self.space_number
-
-    def set_lease_start_date(self,lease_start_date:str) -> None:
-        '''sets the start date of the tenant's lease'''
-        set_lease_start_date = self.lease_start_date
-
-    def set_lease_end_date(self,lease_end_date:str) -> None:
-        '''sets the end date of the tenant's lease'''
-        set_lease_end_date = self.lease_end_date
-
-    def set_contact_information(self,contact_information:str) -> None:
-        '''sets the tenant's contact information'''
-        set_contact_information = self.contact_information
-
-
+    def set_contact_information(self, contact_information: str) -> None:
+        """Sets the tenant's contact information."""
+        self.contact_information = contact_information
 
     def get_lease_start_date(self) -> str:
-        '''retrieves and returns the lease start date'''
-        return self.set_lease_start_date
+        """Retrieves the lease start date."""
+        return self.lease_start_date
 
     def get_lease_end_date(self) -> str:
-        '''retrieves and returns the lease end date'''
-        return self.set_lease_end_date
+        """Retrieves the lease end date."""
+        return self.lease_end_date
 
     def get_contact_information(self) -> str:
-        '''
-        Returns the contact information of the tenant.
-        '''
-        return self.set_contact_information
+        """Returns the contact information of the tenant."""
+        return self.contact_information
 
     def get_name(self) -> str:
-        '''
-        Returns the name of the tenant.
-        '''
-        return self.set_name
+        """Returns the name of the tenant."""
+        return self.name
 
-    def get_store_number(self) -> str:
-        '''
-        Returns the store number of the tenant.
-        '''
-        return self.set_space_number
-
-
+    def get_store_number(self) -> int:
+        """Returns the store number of the tenant."""
+        return self.space_number
