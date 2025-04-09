@@ -1,4 +1,3 @@
-
 class Store:
     """Represents a store unit in the mall.
 
@@ -6,39 +5,34 @@ class Store:
         number (int): The unique identifier or number of the store.
         floor (int): The floor on which the store is located.
         rent_amount (float): The monthly rent amount for the store.
-
-    Methods:
-        set_store_number(number: int) -> None: Sets the store number.
-        set_rent_amount(amount: float) -> None: Sets the monthly rent amount.
-        get_rent_amount() -> float: Retrieves the monthly rent amount.
-        get_floor() -> int: Retrieves the floor on which the store is located.
     """
-pass
 
-'''This class used to represent a store unit in the mall'''
-class Store:
-    def__init__(self,number:int,floor:int,rent_amount:float):
-         set_number=self.number
-         set_floor=self.number
-         set_rent_amount=self.rent_amount
+    def __init__(self, number: int, floor: int, rent_amount: float):
+        """Initializes a Store object."""
+        self.number = number
+        self.floor = floor
+        self.rent_amount = rent_amount
 
-    def set_number(self.number)->None:
-    '''sets the number of the store'''
-         set_number=self.number
+    def set_number(self, number: int) -> None:
+        """Sets the number of the store."""
+        self.number = number
 
-    def set_floor(self.floor)->None:
-    '''sets the floor of the store'''
-         set_floor=self.floor
+    def set_floor(self, floor: int) -> None:
+        """Sets the floor of the store."""
+        self.floor = floor
 
-    def set_rent_amount(self.rent_amount)->None:
-    '''sets the monthly rent amount of the store'''
-         set_rent_amount=self.rent_amount
+    def set_rent_amount(self, rent_amount: float) -> None:
+        """Sets the monthly rent amount of the store."""
+        self.rent_amount = rent_amount
 
-    def get_rent_amount(self)->float:
-    '''retrieves the monthly rent amount'''
-         return self.rent_amount
+    def get_rent_amount(self) -> float:
+        """Retrieves the monthly rent amount."""
+        return self.rent_amount
 
-    def get_floor(self)->int:
-    '''Retrieves the floor on which the store is located.'''
-         return self.floor
+    def get_floor(self) -> int:
+        """Retrieves the floor on which the store is located."""
+        return self.floor
 
+    def get_number(self) -> int:
+        """Retrieves the store number."""
+        return self.number
