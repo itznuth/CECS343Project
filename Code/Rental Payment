@@ -1,12 +1,9 @@
-class RentalPayment:
-    """Represents a rental payment for a store unit in the mall.
+from datetime import datetime
+from typing import List
 
-    Attributes:
-        payment_amount (float): The payment amount for the store.
-        payment_date (str): The date when the payment was made.
-        rental_unit (int): The unit number for which the payment was made.
-        payment_status (str): The status of the payment (completed, pending, or overdue).
-    """
+
+class RentalPayment:
+    """Represents a rental payment for a store unit in the mall."""
 
     def __init__(self, payment_amount: float, payment_date: str, rental_unit: int, payment_status: str):
         self.payment_amount = payment_amount
@@ -15,29 +12,63 @@ class RentalPayment:
         self.payment_status = payment_status
 
     def set_payment_amount(self, amount: float) -> None:
-        """Sets the payment amount."""
         self.payment_amount = amount
 
     def get_payment_amount(self) -> float:
-        """Retrieves the payment amount."""
         return self.payment_amount
 
     def set_payment_date(self, date: str) -> None:
-        """Sets the payment date."""
         self.payment_date = date
 
     def set_rental_unit(self, unit: int) -> None:
-        """Sets the rental unit number."""
         self.rental_unit = unit
 
     def get_rental_unit(self) -> int:
-        """Retrieves the rental unit number."""
         return self.rental_unit
 
     def set_payment_status(self, status: str) -> None:
-        """Updates the payment status."""
         self.payment_status = status
 
     def get_payment_status(self) -> str:
-        """Retrieves the payment status."""
         return self.payment_status
+
+    def __repr__(self):
+        return (f"RentalPayment(unit={self.rental_unit}, amount={self.payment_amount}, "
+                f"date='{self.payment_date}', status='{self.payment_status}')")
+
+
+# === CRUD and Search/Filter Functions ===
+
+def update_rental_payment(payments: List[RentalPayment], rental_unit: int, new_amount=None, new_date=None, new_status=None) -> bool:
+    for payment in payments:
+        if payment.get_rental_unit() == rental_unit:
+            if new_amount is not None:
+                payment.set_payment_amount(new_amount)
+            if new_date is not None:
+                payment.set_payment_date(new_date)
+            if new_status is not None:
+                payment.set_payment_status(new_status)
+            return True
+    return False
+
+
+def delete_rental_payment(payments: List[RentalPayment], rental_unit: int) -> bool:
+    for i, payment in enumerate(payments):
+        if payment.get_rental_unit() == rental_unit:
+            del payments[i]
+            return True
+    return False
+
+
+def search_by_unit(payments: List[RentalPayment], rental_unit: int) -> List[RentalPayment]:
+    return [p for p in payments if p.get_rental_unit() == rental_unit]
+
+
+def filter_by_status(payments: List[RentalPayment], status: str) -> List[RentalPayment]:
+    return [p for p in payments if p.get_payment_status().lower() == status.lower()]
+
+
+def filter_by_date_range(payments: List[RentalPayment], start_date: str, end_date: str) -> List[RentalPayment]:
+    start = datetime.strptime(start_date, "%Y-%m-%d")
+    end = datetime.strptime(end_date, "%Y-%m-%d")
+    return [p for p in payments if start <= datetime.strptime(p.payment_date, "%Y-%m-%d") <= end]
