@@ -1,32 +1,25 @@
-
 class VisitorTracking:
     """Tracks the number of visitors in the mall.
 
     Attributes:
-        total_visitors (int): Stores the total number of visitors currently in the mall.
-        visitor_times (list): Stores timestamps of visitor entries.
-
-    Methods:
-        get_total_visitors() -> int: Retrieves the total number of visitors.
-        increment_visitor_count(time: str) -> None: Increases the visitor count and logs the time.
-        decrement_visitor_count() -> None: Decreases the visitor count if greater than zero.
+        total_visitors (int): The total number of visitors currently in the mall.
+        visitor_times (list): Timestamps of visitor entries.
     """
-pass
 
-class VisitorTracking:
-'''This class used to track the number of visitors in the mall'''
+    def __init__(self, total_visitors: int = 0, visitor_times: list = None):
+        self.total_visitors = total_visitors
+        self.visitor_times = visitor_times if visitor_times is not None else []
 
-    def__init__(self,total_visitors:int, visitor_times:list):
-        set_total_visitors=self.total_visitors
-        set_visitor_times=self.visitor_times
-
-    def get_total_visitors(self)->int:
-    '''Retrieves the total number of visitors.'''
+    def get_total_visitors(self) -> int:
+        """Retrieves the total number of visitors."""
         return self.total_visitors
 
-    def increment_visitor_count(time)->None:
-    '''Increases the visitor count and logs the time.'''
+    def increment_visitor_count(self, time: str) -> None:
+        """Increases the visitor count and logs the time."""
+        self.total_visitors += 1
+        self.visitor_times.append(time)
 
-    def decrement_visitor_count()->None:
-    '''Decreases the visitor count if greater than zero.'''
-
+    def decrement_visitor_count(self) -> None:
+        """Decreases the visitor count if greater than zero."""
+        if self.total_visitors > 0:
+            self.total_visitors -= 1
