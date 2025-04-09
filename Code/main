@@ -7,6 +7,9 @@ from financialreporting import FinancialReporting
 from security import Security
 from securitymanagement import SecurityManagement
 from store import Store
+from rentalpayment import RentalPayment
+from tenant import Tenant
+from visitortracking import VisitorTracking
 
 class MallManagementSystem:
     def __init__(self):
