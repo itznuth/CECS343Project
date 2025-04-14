@@ -19,18 +19,28 @@ class Security:
 
     def log_incident(self, incident_details: str) -> None:
         """Records details of a security incident."""
+        if not incident_details.strip():
+            print("Error: Incident details can't be empty.")
+            return
         self.incident_log.append(incident_details)
+        print("Incident logged successfully.")
 
     def add_report(self, report: str) -> None:
         """Adds a detailed report to the reports list."""
+         if not report.strip():
+            print("Error: Report content can't be empty.")
+            return
         self.reports.append(report)
+        print("Report added successfully.")
 
     def delete_report(self, index: int) -> bool:
         """Deletes a report by index. Returns True if successful, False otherwise."""
-        if 0 <= index < len(self.reports):
-            del self.reports[index]
-            return True
-        return False
+        if index < 0 or index >= len(self.reports):
+            print(f"Error: No report found at index {index}.")
+            return False
+        del self.reports[index]
+        print(f"Report at index {index} deleted successfully.")
+        return True
 
 
     def set_location(self, location: str) -> None:
