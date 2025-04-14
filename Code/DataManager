@@ -8,7 +8,7 @@ from store import Store
 from rentalpayment import RentalPayment
 from tenant import Tenant
 
-
+Class DataManager:
     def add_store(self):
         print("\nAdd New Store")
         number = int(input("Enter store number: "))
