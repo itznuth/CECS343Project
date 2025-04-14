@@ -7,8 +7,22 @@ from financialreporting import FinancialReporting
 from store import Store
 from rentalpayment import RentalPayment
 from tenant import Tenant
+from security import Security
 
-Class DataManager:
+class DataManager:
+    def __init__(self, stores, investors, customers, managers,
+                 maintenance_requests, tenants, rental_payments, financial_reports, security_logs):
+        self.stores = stores
+        self.investors = investors
+        self.customers = customers
+        self.managers = managers
+        self.maintenance_requests = maintenance_requests
+        self.tenants = tenants
+        self.rental_payments = rental_payments
+        self.financial_reports = financial_reports
+        self.security_logs = security_logs
+
+
     def add_store(self):
         print("\nAdd New Store")
         number = int(input("Enter store number: "))
@@ -16,7 +30,8 @@ Class DataManager:
         rent = float(input("Enter monthly rent amount: "))
         self.stores.append(Store(number, floor, rent))
         print(f"Store {number} added successfully!")
-  
+
+
     def delete_store(self):
         number = int(input("Enter store number to delete: "))
         for store in self.stores:
@@ -25,6 +40,58 @@ Class DataManager:
                 print(f"Store {number} deleted.")
                 return
         print("Store not found.")
+
+    def add_security(self):
+        print("\nAdd Security Log")
+        location = input("Enter security location: ")
+        incident = input("Enter incident details: ")
+        security = Security(location)
+        security.log_incident(incident)
+        self.security_logs.append(security)
+        print(f"Security incident at '{location}' logged.")
+
+    def delete_security(self):
+        print("\nDelete Security Personnel")
+        location = input("Enter location of the security personnel to delete: ")
+        for sec in self.security_logs:
+            if sec.get_location() == location:
+                self.security_logs.remove(sec)
+                print(f"Security personnel at '{location}' removed.")
+                return
+
+    def add_security_report(self):
+        print("\nAdd Security Report")
+        location = input("Enter the location of the security to add report to: ")
+
+        for sec in self.security_logs:
+            if sec.get_location() == location:
+                report = input("Enter detailed report: ")
+                sec.add_report(report)
+                print("Report added to security entry.")
+                return
+
+    def delete_security_report(self):
+        print("\nDelete Security Report")
+        location = input("Enter the location of the security to delete: ")
+        for sec in self.security_logs:
+            if sec.get_location() == location:
+                if not sec.reports:
+                    print("⚠️ No reports to delete.")
+                    return
+                print("\nCurrent Reports:")
+                for idx, report in enumerate(sec.reports, start = 1):
+                    print(f"{idx}. {report}")
+                try:
+                    index = int(input("Enter the report number to delete: ")) - 1
+                    if 0 <= index < len(sec.reports):
+                        deleted = sec.reports.pop(index)
+                        print(f"🗑️ Report deleted: {deleted}")
+                    else:
+                        print("Invalid report number.")
+                except ValueError:
+                    print("Invalid input.")
+                return
+                    
 
     def update_store(self):
         number = int(input("Enter store number to update: "))
@@ -40,12 +107,14 @@ Class DataManager:
                 return
         print("Store not found.")
 
+
     def add_investor(self):
         print("\nAdd New Investor")
         name = input("Enter investor name: ")
         contact = input("Enter contact information: ")
         self.investors.append(Investor(name, contact))
         print(f"Investor {name} added successfully!")
+
 
     def update_investor(self):
         name = input("Enter investor name to update: ")
@@ -57,22 +126,25 @@ Class DataManager:
                 investor.contact = new_contact
                 print(f"Investor {name} updated to {new_name}.")
                 return
-         print("Investor not found.")
+        print("Investor not found.")
+
 
     def delete_investor(self):
         name = input("Enter investor name to delete: ")
         for investor in self.investors:
             if investor.name == name:
-               self.investors.remove(investor)
-               print(f"Investor {name} deleted.")
-               return
+                self.investors.remove(investor)
+                print(f"Investor {name} deleted.")
+                return
         print("Investor not found.")
+
 
     def add_customer(self):
         print("\nAdd New Customer")
         name = input("Enter customer name: ")
         self.customers.append(Customer(name))
         print(f"Customer {name} added successfully!")
+
 
     def delete_customer(self):
         name = input("Enter customer name to delete: ")
@@ -94,6 +166,7 @@ Class DataManager:
                 return
         print("Customer not found.")
 
+
     def add_manager(self):
         print("\nAdd New Manager")
         name = input("Enter manager name: ")
@@ -101,6 +174,7 @@ Class DataManager:
         contact = input("Enter contact information: ")
         self.managers.append(Manager(name, emp_id, contact))
         print(f"Manager {name} added successfully!")
+
 
     def delete_manager(self):
         emp_id = int(input("Enter manager employee ID to delete: "))
@@ -110,6 +184,7 @@ Class DataManager:
                 print(f"Manager {emp_id} deleted.")
                 return
         print("Manager not found.")
+
 
     def update_manager(self):
         emp_id = int(input("Enter manager employee ID to update: "))
@@ -125,6 +200,7 @@ Class DataManager:
                 return
         print("Manager not found.")
 
+
     def create_maintenance_request(self):
         print("\nCreate Maintenance Request")
         req_id = int(input("Enter request ID: "))
@@ -136,14 +212,16 @@ Class DataManager:
         )
         print(f"Maintenance request {req_id} created successfully!")
 
+
     def delete_maintenance_request(self):
         req_id = int(input("Enter request ID to delete: "))
         for req in self.maintenance_requests:
             if req.req_id == req_id:
-                self.maintenance_requests.remove(req)   
+                self.maintenance_requests.remove(req)
                 print(f"Request {req_id} deleted.")
                 return
         print("Request not found.")
+
 
     def update_maintenance_request(self):
         req_id = int(input("Enter request ID to update: "))
@@ -160,7 +238,43 @@ Class DataManager:
                 print(f"Request {req_id} updated to {new_req_id}.")
                 return
         print("Maintenance request not found.")
-        
+
+
+    def generate_financial_report(self):
+        print("\nGenerate Financial Report")
+        revenue = float(input("Enter total revenue: "))
+        sales = float(input("Enter total sales: "))
+        date = input("Enter report date (YYYY-MM-DD): ")
+        report = FinancialReporting(revenue, sales, date)
+
+
+    def delete_financial_report(self):
+        date = input("Enter the date of the report to delete (YYYY-MM-DD): ")
+        for report in self.financial_reports:
+            if report.date == date:
+                self.financial_reports.remove(report)
+                print(f"Financial report on {date} deleted.")
+                return
+        print(f"No financial report found for {date}.")
+
+
+    def update_financial_report(self):
+        date = input("Enter the date of the report to update (YYYY-MM-DD): ")
+        for report in self.financial_reports:
+            if report.date == date:
+                new_revenue = float(input("Enter new total revenue: "))
+                new_sales = float(input("Enter new total sales: "))
+                new_date = input("Enter new report date (YYYY-MM-DD): ")
+
+                report.revenue = new_revenue
+                report.sales = new_sales
+                report.date = new_date
+
+                print(f"Financial report on {date} updated to new date {new_date}.")
+                return
+        print(f"No financial report found for {date}.")
+
+
     def add_tenant(self):
         print("\nAdd New Tenant")
         name = input("Enter tenant name: ")
@@ -171,6 +285,7 @@ Class DataManager:
         self.tenants.append(Tenant(name, space_num, start_date, end_date, contact))
         print(f"Tenant {name} added successfully!")
 
+
     def delete_tenant(self):
         name = input("Enter tenant name to delete: ")
         for tenant in self.tenants:
@@ -179,6 +294,7 @@ Class DataManager:
                 print(f"Tenant {name} deleted.")
                 return
         print("Tenant not found.")
+
 
     def update_tenant(self):
         name = input("Enter tenant name to update: ")
@@ -198,6 +314,7 @@ Class DataManager:
                 return
         print("Tenant not found.")
 
+
     def record_rental_payment(self):
         print("\nRecord Rental Payment")
         amount = float(input("Enter payment amount: "))
@@ -207,6 +324,7 @@ Class DataManager:
         self.rental_payments.append(RentalPayment(amount, date, unit, status))
         print(f"Payment of ${amount:,.2f} for unit {unit} recorded successfully!")
 
+
     def delete_rental_payment(self):
         unit = int(input("Enter unit number to delete payment for: "))
         for payment in self.rental_payments:
@@ -215,7 +333,8 @@ Class DataManager:
                 print(f"Payment for unit {unit} deleted.")
                 return
         print("Payment not found.")
-  
+
+
     def update_rental_payment(self):
         unit = int(input("Enter rental unit number to update: "))
         for payment in self.rental_payments:
