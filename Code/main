@@ -10,6 +10,7 @@ from store import Store
 from rentalpayment import RentalPayment
 from tenant import Tenant
 from visitortracking import VisitorTracking
+from datamanager import DataManager
 
 class MallManagementSystem:
     def __init__(self):
