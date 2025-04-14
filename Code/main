@@ -22,90 +22,117 @@ class MallManagementSystem:
         self.security_logs = []
         self.tenants = []
         self.rental_payments = []
+        self.financial_reports = []
         self.visitor_tracking = VisitorTracking()
-        self.manager=DataManager(self.stores, self.investors, self.customers,
-        self.managers, self.maintenance_requests, self.tenants, self.retal_payments)
+        self.manager = DataManager(self.stores, self.investors, self.customers,
+                                   self.managers, self.maintenance_requests, self.tenants, self.rental_payments,
+                                   self.financial_reports, self.security_logs, )
 
     def run(self):
-    while True:
-        print("\n=== Select Data Type ===")
-        print("1. Store")
-        print("2. Customer")
-        print("3. Investor")
-        print("4. Manager")
-        print("5. Tenant")
-        print("6. Maintenance Request")
-        print("7. Rental Payment")
-        print("8. Exit")
-        data_choice = input("Choose an option: ")
+        while True:
+            print("\n=== Select Data Type ===")
+            print("1. Store")
+            print("2. Customer")
+            print("3. Investor")
+            print("4. Manager")
+            print("5. Tenant")
+            print("6. Maintenance Request")
+            print("7. Rental Payment")
+            print("8. Security")
+            print("9. Financial Report")
+            print("10. Exit")
+            data_choice = input("Choose an option: ")
 
-        if data_choice == '8':
-            break
+            if data_choice == '10':
+                break
 
-        print("\nWhat would you like to do?")
-        print("1. Add")
-        print("2. Delete")
-        print("3. Update")
-        action_choice = input("Choose an action: ")
+            print("\nWhat would you like to do?")
+            print("1. Add")
+            print("2. Delete")
+            print("3. Update")
+            action_choice = input("Choose an action: ")
 
-        if data_choice == '1':
-            if action_choice == '1':
-                self.manager.add_store()
-            elif action_choice == '2':
-                self.manager.delete_store()
-            elif action_choice == '3':
-                self.manager.update_store()
+            if data_choice == '1':
+                if action_choice == '1':
+                    self.manager.add_store()
+                elif action_choice == '2':
+                    self.manager.delete_store()
+                elif action_choice == '3':
+                    self.manager.update_store()
 
-        elif data_choice == '2':
-            if action_choice == '1':
-                self.manager.add_customer()
-            elif action_choice == '2':
-                self.manager.delete_customer()
-            elif action_choice == '3':
-                self.manager.update_customer()
+            elif data_choice == '2':
+                if action_choice == '1':
+                    self.manager.add_customer()
+                elif action_choice == '2':
+                    self.manager.delete_customer()
+                elif action_choice == '3':
+                    self.manager.update_customer()
 
-        elif data_choice == '3':
-            if action_choice == '1':
-                self.manager.add_investor()
-            elif action_choice == '2':
-                self.manager.delete_investor()
-            elif action_choice == '3':
-                self.manager.update_investor()
+            elif data_choice == '3':
+                if action_choice == '1':
+                    self.manager.add_investor()
+                elif action_choice == '2':
+                    self.manager.delete_investor()
+                elif action_choice == '3':
+                    self.manager.update_investor()
 
-        elif data_choice == '4':
-            if action_choice == '1':
-                self.manager.add_manager()
-            elif action_choice == '2':
-                self.manager.delete_manager()
-            elif action_choice == '3':
-                self.manager.update_manager()
+            elif data_choice == '4':
+                if action_choice == '1':
+                    self.manager.add_manager()
+                elif action_choice == '2':
+                    self.manager.delete_manager()
+                elif action_choice == '3':
+                    self.manager.update_manager()
 
-        elif data_choice == '5':
-            if action_choice == '1':
-                self.manager.add_tenant()
-            elif action_choice == '2':
-                self.manager.delete_tenant()
-            elif action_choice == '3':
-                self.manager.update_tenant()
+            elif data_choice == '5':
+                if action_choice == '1':
+                    self.manager.add_tenant()
+                elif action_choice == '2':
+                    self.manager.delete_tenant()
+                elif action_choice == '3':
+                    self.manager.update_tenant()
 
-        elif data_choice == '6':
-            if action_choice == '1':
-                self.manager.create_maintenance_request()
-            elif action_choice == '2':
-                self.manager.delete_maintenance_request()
-            elif action_choice == '3':
-                self.manager.update_maintenance_request()
+            elif data_choice == '6':
+                if action_choice == '1':
+                    self.manager.create_maintenance_request()
+                elif action_choice == '2':
+                    self.manager.delete_maintenance_request()
+                elif action_choice == '3':
+                    self.manager.update_maintenance_request()
 
-        elif data_choice == '7':
-            if action_choice == '1':
-                self.manager.record_rental_payment()
-            elif action_choice == '2':
-                self.manager.delete_rental_payment()
-            elif action_choice == '3':
-                self.manager.update_rental_payment()
+            elif data_choice == '7':
+                if action_choice == '1':
+                    self.manager.record_rental_payment()
+                elif action_choice == '2':
+                    self.manager.delete_rental_payment()
+                elif action_choice == '3':
+                    self.manager.update_rental_payment()
 
-        else:
-            print("Invalid selection.")
+            elif data_choice == '8':
+                if action_choice == '1':
+                    self.manager.add_security()
+                elif action_choice == '2':
+                    self.manager.delete_security()
+                elif action_choice == '3':
+                    print("\nSecurity Reports Menu")
+                    print("1. Add Report")
+                    print("2. Delete Report")
+                    sub = input("Select option: ")
+                    if sub == '1':
+                        self.manager.add_security_report()
+                    elif sub == '2':
+                        self.manager.delete_security_report()
+
+            elif data_choice == '9':
+                if action_choice == '1':
+                    self.manager.generate_financial_report()
+                elif action_choice == '2':
+                    self.manager.delete_financial_report()
+                elif action_choice == '3':
+                    self.manager.update_financial_report()
+
+            else:
+                print("Invalid selection.")
 
     def log_security_incident(self):
         print("\nLog Security Incident")
@@ -125,7 +152,7 @@ class MallManagementSystem:
         print(f"\nFinancial Report for {date}")
         print(f"Total Revenue: ${report.get_revenue():,.2f}")
         print(f"Total Sales: ${report.get_sales():,.2f}")
-        
+
     def track_visitor(self):
         print("\nVisitor Tracking")
         action = input("(I)ncrement or (D)ecrement visitor count? ").upper()
