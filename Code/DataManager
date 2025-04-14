@@ -1,3 +1,14 @@
+from investor import Investor
+from manager import Manager
+from person import Person
+from customer import Customer
+from facilitymaintenance import FacilityMaintenance
+from financialreporting import FinancialReporting
+from store import Store
+from rentalpayment import RentalPayment
+from tenant import Tenant
+
+
     def add_store(self):
         print("\nAdd New Store")
         number = int(input("Enter store number: "))
