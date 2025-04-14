@@ -18,12 +18,20 @@ class SecurityManagement:
 
     def log_incident(self, incident_details: str) -> None:
         """Records details of a security incident."""
+        if not incident_details.strip():
+            print("Error: Incident details can't be empty.")
+            return
         self.incident_log.append(incident_details)
+        print("Incident logged successfully.")
 
     def set_location(self, location: str) -> None:
         """Assigns a security location."""
+        if not location.strip():
+            print("Error: Location can't be empty.")
+            return
         self.location = location
+        print(f"Location set to: {location}")
 
     def get_location(self) -> str:
         """Retrieves the assigned location."""
-        return self.location
+        return f"Current location: {self.location}"
