@@ -19,7 +19,11 @@ This project allows users to easily manage and organize important records throug
 
 ## Author
 Anthony Nuth
+
 Daeun Han
+
 Ediz Cavus
+
 Wardah Abuhadba
+
 Priscilla Romero
