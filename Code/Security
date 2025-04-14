@@ -15,10 +15,23 @@ class Security:
         """Initializes Security with a location and an empty incident log."""
         self.location = location
         self.incident_log = []
+        self.reports = []
 
     def log_incident(self, incident_details: str) -> None:
         """Records details of a security incident."""
         self.incident_log.append(incident_details)
+
+    def add_report(self, report: str) -> None:
+        """Adds a detailed report to the reports list."""
+        self.reports.append(report)
+
+    def delete_report(self, index: int) -> bool:
+        """Deletes a report by index. Returns True if successful, False otherwise."""
+        if 0 <= index < len(self.reports):
+            del self.reports[index]
+            return True
+        return False
+
 
     def set_location(self, location: str) -> None:
         """Assigns a security location."""
@@ -27,3 +40,6 @@ class Security:
     def get_location(self) -> str:
         """Retrieves the assigned location."""
         return self.location
+
+    def __repr__(self):
+        return f"Security(location='{self.location}')"
