@@ -160,38 +160,6 @@ Class DataManager:
                 print(f"Request {req_id} updated to {new_req_id}.")
                 return
         print("Maintenance request not found.")
-
-    def generate_financial_report(self):
-        print("\nGenerate Financial Report")
-        revenue = float(input("Enter total revenue: "))
-        sales = float(input("Enter total sales: "))
-        date = input("Enter report date (YYYY-MM-DD): ")
-        report = FinancialReporting(revenue, sales, date)
-
-    def delete_financial_report(self):
-        date = input("Enter the date of the report to delete (YYYY-MM-DD): ")
-        for report in self.financial_reports:
-            if report.date == date:
-                self.financial_reports.remove(report)
-                print(f"Financial report on {date} deleted.")
-                return
-        print(f"No financial report found for {date}.")
-
-    def update_financial_report(self):
-        date = input("Enter the date of the report to update (YYYY-MM-DD): ")
-        for report in self.financial_reports:
-            if report.date == date:
-                new_revenue = float(input("Enter new total revenue: "))
-                new_sales = float(input("Enter new total sales: "))
-                new_date = input("Enter new report date (YYYY-MM-DD): ")
-
-                report.revenue = new_revenue
-                report.sales = new_sales
-                report.date = new_date
-
-                print(f"Financial report on {date} updated to new date {new_date}.")
-                return
-        print(f"No financial report found for {date}.")
         
     def add_tenant(self):
         print("\nAdd New Tenant")
