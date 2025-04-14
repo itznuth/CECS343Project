@@ -16,7 +16,12 @@ class Customer(Person):
 
     def submit_feedback(self, feedback_text: str) -> None:
         """Stores customer feedback."""
+        if not feedback_text.strip():
+            return "Error: Feedback can't be empty."
         self.feedback.append(feedback_text)
+        return "Feedback submitted successfully."
+        
+        
 
     def browse_store(self) -> str:
         """Simulates browsing available stores."""
