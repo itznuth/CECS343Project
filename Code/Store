@@ -7,11 +7,11 @@ class Store:
         rent_amount (float): The monthly rent amount for the store.
     """
 
-    def __init__(self, number: int, floor: int, rent_amount: float):
-        """Initializes a Store object."""
+    def __init__(self, number: int, floor: int, rent_amount: float,tenant:str="Vacant"):
         self.number = number
         self.floor = floor
         self.rent_amount = rent_amount
+        self.tenant = tenant
 
     def set_number(self, number: int) -> None:
         """Sets the number of the store."""
@@ -36,3 +36,10 @@ class Store:
     def get_number(self) -> int:
         """Retrieves the store number."""
         return self.number
+
+    def get_store_info(self) -> str:
+        """Returns formatted store information as a string."""
+        return (f"Store #{self.number} (Floor {self.floor})\n"
+                f"Tenant: {self.tenant}\n"
+                f"Monthly Rent: ${self.rent_amount:,.2f}\n"
+                f"{'-'*30}\n")
