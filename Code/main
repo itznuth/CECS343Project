@@ -19,8 +19,17 @@ from rental_payment import (
     update_rental_payment,
     delete_rental_payment
 )
-payments = []  # List of RentalPayment
-maintenance_requests = []  # List of FacilityMaintenance
+
+# In-memory storage
+payments = []
+maintenance_requests = []
+
+# Simulated user credentials
+users = {
+    "admin1": {"password": "adminpass", "role": "admin"},
+    "tenant1": {"password": "tenantpass", "role": "tenant"},
+    "manager1": {"password": "managerpass", "role": "manager"},
+}
 
 
 class MallManagementSystem:
@@ -36,117 +45,166 @@ class MallManagementSystem:
         self.visitor_tracking = VisitorTracking()
 
     def add_store(self):
-        print("\nAdd New Store")
         number = int(input("Enter store number: "))
         floor = int(input("Enter floor number: "))
         rent = float(input("Enter monthly rent amount: "))
         self.stores.append(Store(number, floor, rent))
-        print(f"Store {number} added successfully!")
+        print(f"Store {number} added.")
 
     def add_investor(self):
-        print("\nAdd New Investor")
-        name = input("Enter investor name: ")
-        contact = input("Enter contact information: ")
+        name = input("Investor name: ")
+        contact = input("Contact info: ")
         self.investors.append(Investor(name, contact))
-        print(f"Investor {name} added successfully!")
+        print(f"Investor {name} added.")
 
     def add_customer(self):
-        print("\nAdd New Customer")
-        name = input("Enter customer name: ")
+        name = input("Customer name: ")
         self.customers.append(Customer(name))
-        print(f"Customer {name} added successfully!")
+        print(f"Customer {name} added.")
 
     def add_manager(self):
-        print("\nAdd New Manager")
-        name = input("Enter manager name: ")
-        emp_id = int(input("Enter employee ID: "))
-        contact = input("Enter contact information: ")
+        name = input("Manager name: ")
+        emp_id = int(input("Employee ID: "))
+        contact = input("Contact info: ")
         self.managers.append(Manager(name, emp_id, contact))
-        print(f"Manager {name} added successfully!")
+        print(f"Manager {name} added.")
 
     def create_maintenance_request(self):
-        print("\nCreate Maintenance Request")
-        req_id = int(input("Enter request ID: "))
-        tenant_id = int(input("Enter tenant ID: "))
-        maint_type = input("Enter maintenance type: ")
-        date = input("Enter request date (YYYY-MM-DD): ")
-        self.maintenance_requests.append(
-            FacilityMaintenance(req_id, tenant_id, maint_type, date)
-        )
-        print(f"Maintenance request {req_id} created successfully!")
+        req_id = int(input("Request ID: "))
+        tenant_id = int(input("Tenant ID: "))
+        maint_type = input("Maintenance type: ")
+        date = input("Request date (YYYY-MM-DD): ")
+        self.maintenance_requests.append(FacilityMaintenance(req_id, tenant_id, maint_type, date))
+        print(f"Maintenance request {req_id} created.")
 
     def log_security_incident(self):
-        print("\nLog Security Incident")
-        location = input("Enter incident location: ")
-        details = input("Enter incident details: ")
+        location = input("Incident location: ")
+        details = input("Incident details: ")
         security = SecurityManagement(location)
         security.log_incident(details)
         self.security_logs.append(security)
-        print("Incident logged successfully!")
+        print("Incident logged.")
 
     def generate_financial_report(self):
-        print("\nGenerate Financial Report")
-        revenue = float(input("Enter total revenue: "))
-        sales = float(input("Enter total sales: "))
-        date = input("Enter report date (YYYY-MM-DD): ")
+        revenue = float(input("Total revenue: "))
+        sales = float(input("Total sales: "))
+        date = input("Report date (YYYY-MM-DD): ")
         report = FinancialReporting(revenue, sales, date)
-        print(f"\nFinancial Report for {date}")
-        print(f"Total Revenue: ${report.get_revenue():,.2f}")
-        print(f"Total Sales: ${report.get_sales():,.2f}")
-        
+        print(f"\nFinancial Report - {date}")
+        print(f"Revenue: ${report.get_revenue():,.2f}")
+        print(f"Sales: ${report.get_sales():,.2f}")
+
     def add_tenant(self):
-        print("\nAdd New Tenant")
-        name = input("Enter tenant name: ")
-        space_num = int(input("Enter store number: "))
-        start_date = input("Enter lease start date (YYYY-MM-DD): ")
-        end_date = input("Enter lease end date (YYYY-MM-DD): ")
-        contact = input("Enter contact information: ")
+        name = input("Tenant name: ")
+        space_num = int(input("Store number: "))
+        start_date = input("Lease start (YYYY-MM-DD): ")
+        end_date = input("Lease end (YYYY-MM-DD): ")
+        contact = input("Contact info: ")
         self.tenants.append(Tenant(name, space_num, start_date, end_date, contact))
-        print(f"Tenant {name} added successfully!")
+        print(f"Tenant {name} added.")
 
     def record_rental_payment(self):
-        print("\nRecord Rental Payment")
-        amount = float(input("Enter payment amount: "))
-        date = input("Enter payment date (YYYY-MM-DD): ")
-        unit = int(input("Enter rental unit number: "))
-        status = input("Enter payment status (completed/pending/overdue): ")
+        amount = float(input("Payment amount: "))
+        date = input("Payment date (YYYY-MM-DD): ")
+        unit = int(input("Rental unit #: "))
+        status = input("Status (completed/pending/overdue): ")
         self.rental_payments.append(RentalPayment(amount, date, unit, status))
-        print(f"Payment of ${amount:,.2f} for unit {unit} recorded successfully!")
+        print(f"Payment for unit {unit} recorded.")
 
     def track_visitor(self):
-        print("\nVisitor Tracking")
         action = input("(I)ncrement or (D)ecrement visitor count? ").upper()
         if action == "I":
-            time = input("Enter entry time (HH:MM): ")
+            time = input("Entry time (HH:MM): ")
             self.visitor_tracking.increment_visitor_count(time)
-            print("Visitor count incremented.")
+            print("Visitor incremented.")
         elif action == "D":
             self.visitor_tracking.decrement_visitor_count()
-            print("Visitor count decremented.")
+            print("Visitor decremented.")
         else:
-            print("Invalid choice.")
-        print(f"Current visitor count: {self.visitor_tracking.get_total_visitors()}")
+            print("Invalid input.")
+        print(f"Total visitors: {self.visitor_tracking.get_total_visitors()}")
 
     def export_stores_to_file(self, filename: str = "stores_report.txt") -> None:
-        """Exports all stores information to a text file."""
         try:
             with open(filename, 'w') as file:
                 file.write("=== MALL STORES REPORT ===\n")
-                file.write(f"Generated on: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+                file.write(f"Generated: {datetime.datetime.now()}\n")
                 file.write(f"Total Stores: {len(self.stores)}\n\n")
-
                 for store in self.stores:
                     file.write(store.get_store_info())
-
                 total_rent = sum(store.get_rent_amount() for store in self.stores)
-                file.write(f"\nTOTAL MONTHLY RENT: ${total_rent:,.2f}\n")
-
-            print(f"Store report successfully saved to {filename}")
+                file.write(f"\nTOTAL RENT: ${total_rent:,.2f}\n")
+            print(f"Report saved to {filename}")
         except Exception as e:
-            print(f"Error saving store report: {e}")
-        
-    def display_menu(self):
-        print("\n=== Mall Management System ===")
+            print(f"Error: {e}")
+
+
+def login():
+    username = input("Username: ")
+    password = input("Password: ")
+    user = users.get(username)
+    if user and user["password"] == password:
+        print(f"Login successful ({user['role']})")
+        return user["role"]
+    else:
+        print("Invalid login.")
+        return None
+
+
+def tenant_menu():
+    while True:
+        print("\nTenant Menu")
+        print("1. Add Rental Payment")
+        print("2. Search Payment by Unit")
+        print("3. Update Payment")
+        print("4. Delete Payment")
+        print("5. Exit")
+        choice = input("Choose: ")
+        if choice == "1":
+            try:
+                amount = float(input("Amount: "))
+                date = input("Date (YYYY-MM-DD): ")
+                unit = int(input("Unit #: "))
+                status = input("Status: ")
+                payments.append(RentalPayment(amount, date, unit, status))
+                print("Payment added.")
+            except:
+                print("Invalid input.")
+        elif choice == "2":
+            unit = int(input("Enter unit #: "))
+            results = search_by_unit(payments, unit)
+            print("Results:", results)
+        elif choice == "3":
+            unit = int(input("Unit to update: "))
+            new_status = input("New status: ")
+            if update_rental_payment(payments, unit, new_status=new_status):
+                print("Updated.")
+            else:
+                print("Not found.")
+        elif choice == "4":
+            unit = int(input("Unit to delete: "))
+            if delete_rental_payment(payments, unit):
+                print("Deleted.")
+            else:
+                print("Not found.")
+        elif choice == "5":
+            break
+        else:
+            print("Invalid option.")
+
+
+def manager_menu():
+    print("\nManager Menu")
+    print("1. View Maintenance")
+    print("2. Export Logs")
+    print("3. Exit")
+    # Add manager functionalities here
+
+
+def admin_menu():
+    system = MallManagementSystem()
+    while True:
+        print("\nAdmin Menu")
         print("1. Manage Stores")
         print("2. Manage Investors")
         print("3. Manage Customers")
@@ -159,86 +217,50 @@ class MallManagementSystem:
         print("10. Visitor Tracking")
         print("11. Export Stores Report")
         print("12. Exit")
+        choice = input("Choose: ")
+        if choice == "1":
+            system.add_store()
+        elif choice == "2":
+            system.add_investor()
+        elif choice == "3":
+            system.add_customer()
+        elif choice == "4":
+            system.add_manager()
+        elif choice == "5":
+            system.create_maintenance_request()
+        elif choice == "6":
+            system.log_security_incident()
+        elif choice == "7":
+            system.generate_financial_report()
+        elif choice == "8":
+            system.add_tenant()
+        elif choice == "9":
+            system.record_rental_payment()
+        elif choice == "10":
+            system.track_visitor()
+        elif choice == "11":
+            filename = input("Enter filename (press Enter for default): ")
+            if not filename:
+                filename = "stores_report.txt"
+            system.export_stores_to_file(filename)
+        elif choice == "12":
+            break
+        else:
+            print("Invalid option.")
 
-    def run(self):
-        while True:
-            self.display_menu()
-            choice = input("Enter your choice (1-12): ")
 
-            if choice == "1":
-                self.add_store()
-            elif choice == "2":
-                self.add_investor()
-            elif choice == "3":
-                self.add_customer()
-            elif choice == "4":
-                self.add_manager()
-            elif choice == "5":
-                self.create_maintenance_request()
-            elif choice == "6":
-                self.log_security_incident()
-            elif choice == "7":
-                self.generate_financial_report()
-            elif choice == "8":
-                self.add_tenant()
-            elif choice == "9":
-                self.record_rental_payment()
-            elif choice == "10":
-                self.track_visitor()
-            elif choice == "11":
-                filename = input("Enter output filename (or press Enter for default): ")
-                if not filename:
-                    filename = "stores_report.txt"
-                self.export_stores_to_file(filename)
-            elif choice == "12":
-                print("Exiting Mall Management System. Goodbye!")
-                break
-    def tenant_menu():
-        while True:
-            print("\nTenant Menu:")
-            print("1. Add Rental Payment")
-            print("2. Search Payment by Unit")
-            print("3. Update Payment")
-            print("4. Delete Payment")
-            print("5. Exit")
-            choice = input("Choose an option: ")
-    
-            if choice == "1":
-                try:
-                    amount = float(input("Amount: "))
-                    date = input("Date (YYYY-MM-DD): ")
-                    unit = int(input("Unit #: "))
-                    status = input("Status (pending/completed/overdue): ")
-                    payments.append(RentalPayment(amount, date, unit, status))
-                    print("Payment added.")
-                except:
-                    print("Invalid input.")
-            
-            elif choice == "2":
-                unit = int(input("Enter unit #: "))
-                results = search_by_unit(payments, unit)
-                print("Results:", results)
-    
-            elif choice == "3":
-                unit = int(input("Unit to update: "))
-                new_status = input("New status: ")
-                if update_rental_payment(payments, unit, new_status=new_status):
-                    print("Updated.")
-                else:
-                    print("Unit not found.")
-    
-            elif choice == "4":
-                unit = int(input("Unit to delete: "))
-                if delete_rental_payment(payments, unit):
-                    print("Deleted.")
-                else:
-                    print("Unit not found.")
-    
-            elif choice == "5":
-                break
-            else:
-                print("Invalid option.")
+def run_interface(role):
+    if role == "tenant":
+        tenant_menu()
+    elif role == "manager":
+        manager_menu()
+    elif role == "admin":
+        admin_menu()
+    else:
+        print("Access denied.")
+
 
 if __name__ == "__main__":
-    system = MallManagementSystem()
-    system.run()
+    role = login()
+    if role:
+        run_interface(role)
