@@ -11,7 +11,16 @@ from store import Store
 from rentalpayment import RentalPayment
 from tenant import Tenant
 from visitortracking import VisitorTracking
-from rental_payment import RentalPayment, search_by_unit, filter_by_status, filter_by_date_range
+from rental_payment import (
+    RentalPayment,
+    search_by_unit,
+    filter_by_status,
+    filter_by_date_range,
+    update_rental_payment,
+    delete_rental_payment
+)
+payments = []  # List of RentalPayment
+maintenance_requests = []  # List of FacilityMaintenance
 
 
 class MallManagementSystem:
@@ -187,34 +196,48 @@ class MallManagementSystem:
     def tenant_menu():
         while True:
             print("\nTenant Menu:")
-            print("1. Search Payment by Unit")
-            print("2. Filter by Status")
-            print("3. Filter by Date Range")
-            print("4. Exit")
+            print("1. Add Rental Payment")
+            print("2. Search Payment by Unit")
+            print("3. Update Payment")
+            print("4. Delete Payment")
+            print("5. Exit")
             choice = input("Choose an option: ")
     
             if choice == "1":
-                unit = int(input("Enter rental unit number: "))
+                try:
+                    amount = float(input("Amount: "))
+                    date = input("Date (YYYY-MM-DD): ")
+                    unit = int(input("Unit #: "))
+                    status = input("Status (pending/completed/overdue): ")
+                    payments.append(RentalPayment(amount, date, unit, status))
+                    print("Payment added.")
+                except:
+                    print("Invalid input.")
+            
+            elif choice == "2":
+                unit = int(input("Enter unit #: "))
                 results = search_by_unit(payments, unit)
                 print("Results:", results)
     
-            elif choice == "2":
-                status = input("Enter status (completed/pending/overdue): ")
-                results = filter_by_status(payments, status)
-                print("Results:", results)
-    
             elif choice == "3":
-                start = input("Start date (YYYY-MM-DD): ")
-                end = input("End date (YYYY-MM-DD): ")
-                results = filter_by_date_range(payments, start, end)
-                print("Results:", results)
+                unit = int(input("Unit to update: "))
+                new_status = input("New status: ")
+                if update_rental_payment(payments, unit, new_status=new_status):
+                    print("Updated.")
+                else:
+                    print("Unit not found.")
     
             elif choice == "4":
-                break
+                unit = int(input("Unit to delete: "))
+                if delete_rental_payment(payments, unit):
+                    print("Deleted.")
+                else:
+                    print("Unit not found.")
     
+            elif choice == "5":
+                break
             else:
-                print("Invalid option. Try again.")
-
+                print("Invalid option.")
 
 if __name__ == "__main__":
     system = MallManagementSystem()
