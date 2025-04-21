@@ -11,6 +11,8 @@ from store import Store
 from rentalpayment import RentalPayment
 from tenant import Tenant
 from visitortracking import VisitorTracking
+from rental_payment import RentalPayment, search_by_unit, filter_by_status, filter_by_date_range
+
 
 class MallManagementSystem:
     def __init__(self):
@@ -182,6 +184,37 @@ class MallManagementSystem:
             elif choice == "12":
                 print("Exiting Mall Management System. Goodbye!")
                 break
+    def tenant_menu():
+        while True:
+            print("\nTenant Menu:")
+            print("1. Search Payment by Unit")
+            print("2. Filter by Status")
+            print("3. Filter by Date Range")
+            print("4. Exit")
+            choice = input("Choose an option: ")
+    
+            if choice == "1":
+                unit = int(input("Enter rental unit number: "))
+                results = search_by_unit(payments, unit)
+                print("Results:", results)
+    
+            elif choice == "2":
+                status = input("Enter status (completed/pending/overdue): ")
+                results = filter_by_status(payments, status)
+                print("Results:", results)
+    
+            elif choice == "3":
+                start = input("Start date (YYYY-MM-DD): ")
+                end = input("End date (YYYY-MM-DD): ")
+                results = filter_by_date_range(payments, start, end)
+                print("Results:", results)
+    
+            elif choice == "4":
+                break
+    
+            else:
+                print("Invalid option. Try again.")
+
 
 if __name__ == "__main__":
     system = MallManagementSystem()
