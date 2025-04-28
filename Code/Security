@@ -27,7 +27,7 @@ class Security:
 
     def add_report(self, report: str) -> None:
         """Adds a detailed report to the reports list."""
-         if not report.strip():
+        if not report.strip():
             print("Error: Report content can't be empty.")
             return
         self.reports.append(report)
@@ -53,3 +53,13 @@ class Security:
 
     def __repr__(self):
         return f"Security(location='{self.location}')"
+
+    def export_incidents(self, filename: str) -> None:
+        try:
+            with open(filename, 'w') as file:
+                for i, incident in enumerate(self.incident_log, start=1):
+                    file.write(f"Incident {i}: {incident}\n")
+            print(f"Incidents successfully exported to '{filename}'.")
+    except Exception as e:
+            print(f"Error exporting incidents: {e}")
+
