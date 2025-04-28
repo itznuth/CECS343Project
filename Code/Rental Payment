@@ -72,3 +72,11 @@ def filter_by_date_range(payments: List[RentalPayment], start_date: str, end_dat
     start = datetime.strptime(start_date, "%Y-%m-%d")
     end = datetime.strptime(end_date, "%Y-%m-%d")
     return [p for p in payments if start <= datetime.strptime(p.payment_date, "%Y-%m-%d") <= end]
+
+def export_payments(payments: List[RentalPayment], filename:str) -> None:
+    with open(filename, 'w') as file:
+        for payment in payments:
+            file.write(f"Unit: {payment.get_rental_unit()}, "
+                               f"Amount: ${payment.get_payment_amount():.2f}, "
+                               f"Date: {payment.payment_date}, "
+                               f"Status: {payment.get_payment_status()}\n")
