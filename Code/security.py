@@ -60,6 +60,6 @@ class Security:
                 for i, incident in enumerate(self.incident_log, start=1):
                     file.write(f"Incident {i}: {incident}\n")
             print(f"Incidents successfully exported to '{filename}'.")
-    except Exception as e:
+        except Exception as e:
             print(f"Error exporting incidents: {e}")
 
