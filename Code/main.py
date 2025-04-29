@@ -11,7 +11,7 @@ from store import Store
 from rentalpayment import RentalPayment
 from tenant import Tenant
 from visitortracking import VisitorTracking
-from rental_payment import (
+from rentalpayment import (
     RentalPayment,
     search_by_unit,
     filter_by_status,
