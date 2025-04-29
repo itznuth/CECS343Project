@@ -1,3 +1,5 @@
+from person import Person
+
 class Customer(Person):
     """Represents a customer in the mall.
 
