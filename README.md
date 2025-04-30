@@ -50,12 +50,6 @@ This project allows users to easily manage and organize important records throug
 
   -Export rental payment records to a text file
 
--**Visitor Tracking**
-
-  -Track mall visitor count (increment/decrement)
-
-  -Log entry times for visitor tracking
-
 -**Report Exporting**
 
   -Export various records (stores, maintenance, security, payments) to text files
