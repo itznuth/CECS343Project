@@ -2,7 +2,7 @@ class FacilityMaintenance:
     """Represents a facility maintenance request in the mall."""
 
     def __init__(self, request_id: int, tenant_id: int, maintenance_type: str,
-                 request_date: str, status: str = "pending", resolution_date: str = ""):
+         request_date: str, status: str = "pending", resolution_date: str = ""):
         self.request_id = request_id
         self.tenant_id = tenant_id
         self.maintenance_type = maintenance_type
