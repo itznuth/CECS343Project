@@ -66,7 +66,11 @@ This project allows users to easily manage and organize important records throug
 
 
 ## File Structure
-
+-**Language**: Python 3  
+- **Execution Environment**: Console-based CLI  
+- **Data Handling**: File I/O  
+- **Date Handling**: Built-in `datetime` module  
+- **Structure**: Class-based modular design (each feature in a separate `.py` file)
 
 ## How to Run
 
