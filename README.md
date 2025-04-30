@@ -66,7 +66,23 @@ This project allows users to easily manage and organize important records throug
 
 
 ## File Structure
-<pre> ```plaintext CECS343Project/ ├── README.md├── Code/ │ ├── main.py  │ ├── store.py  │ ├── investor.py  │ ├── customer.py  │ ├── manager.py │ ├── tenant.py │ ├── rentalpayment.py│ ├── facilitymaintenance.py│ ├── financialreporting.py│ ├── security.py │ ├── securitymanagement.py │└──  visitortracking.py    ``` </pre>
+CECS343Project/
+├── README.md
+├── code/
+│   └── main/
+│       ├── main.py
+│       ├── store.py
+│       ├── investor.py
+│       ├── customer.py
+│       ├── manager.py
+│       ├── tenant.py
+│       ├── rentalpayment.py
+│       ├── facilitymaintenance.py
+│       ├── financialreporting.py
+│       ├── security.py
+│       ├── securitymanagement.py
+│       ├── visitortracking.py
+
 
 ## How to Run
 
