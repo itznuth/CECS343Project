@@ -16,10 +16,6 @@ This project allows users to easily manage and organize important records throug
 
   -Register investors and store their contact information
 
--**Customer Management**
-
-  -Add new customers to the system
-
 -**Manager Management**
 
   -Register mall managers with employee ID and contact details
