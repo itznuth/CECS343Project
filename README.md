@@ -93,10 +93,10 @@ cd CECS343Project/Code
 python3 main.py
 
 3. You will first see a login prompt:
-=== Mall Management System ===
-1. Login
-2. Exit
-Choose: 
+  === Mall Management System ===
+  1. Login
+  2. Exit
+  Choose: 
 
 
 
