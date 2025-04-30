@@ -98,7 +98,7 @@ python3 main.py
 1. Login
 2. Exit
 Choose: 
-
+```
 
 
 ## Example Usage
