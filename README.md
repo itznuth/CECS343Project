@@ -113,7 +113,7 @@ Choose:
 ```
 <Example actions: Manage Tenants ->7>
 
-5. After Choosing number, follow the interactive menu to use various features:
+5. After choosing a number, follow the interactive menu to use various features:
 ```text
 ADMIN DASHBOARD
 TENANT MANAGEMENT
