@@ -14,7 +14,7 @@ class MallManagementSystem:
         # Initialize with sample data
         self.data_manager = DataManager(
             stores=[Store(101, 1, 5000), Store(202, 2, 7500)],
-            investors=[Investor("Anthony", "john@example.com")],
+            investors=[Investor("Anthony", "anthony@example.com")],
             managers=[Manager("John Smith", 1001, "John", "Operations", 2)],
             maintenance_requests=[],
             tenants=[
