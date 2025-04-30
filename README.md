@@ -100,8 +100,40 @@ python3 main.py
 Choose: 
 ```
 
+4. After logging in, follow the interactive menu to use various features:
+```text
+ADMIN DASHBOARD
+1. Manage Stores
+2. Manage Investors
+3. Manage Managers
+...
+10. Export Data
+11. Logout
+Choose: 
+```
+<Example actions: Manage Tenants->7>
 
-## Example Usage
+5. After Choosing number, follow the interactive menu to use various features:
+```text
+ADMIN DASHBOARD
+TENANT MANAGEMENT
+1. Add Tenant
+2. Update Tenant
+...
+5. Back
+Choose: 
+```
+<Example actions: View All Tenants->4>
+ALL TENANTS:
+Name: Fashion Store
+Store: 101
+Lease: 2023-01-01 to 2024-01-01
+Contact: contact@fashion.com
+.
+.
+.
+
+
 
 
 ## Tech Stack
