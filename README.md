@@ -106,7 +106,6 @@ Choose:
 
 5. After choosing a number, follow the interactive menu to use various features:
 ```text
-ADMIN DASHBOARD
 TENANT MANAGEMENT
 1. Add Tenant
 2. Update Tenant
