@@ -90,7 +90,7 @@ CECS343Project/
 ```bash
 git clone https://github.com/itznuth/CECS343Project.git
 cd CECS343Project/code
-
+```
 2. Run the main Python file:
  ```bash
  python3 main.py
