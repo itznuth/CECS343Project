@@ -86,6 +86,18 @@ CECS343Project/
 
 
 ## How to Run
+1. Open your terminal and navigate to the project directory:
+cd CECS343Project/Code
+
+2. Run the main Python file:
+python3 main.py
+
+3. You will first see a login prompt:
+=== Mall Management System ===
+1. Login
+2. Exit
+Choose: 
+
 
 
 ## Example Usage
