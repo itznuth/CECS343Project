@@ -68,7 +68,7 @@ This project allows users to easily manage and organize important records throug
 ## File Structure
 CECS343Project/
 ├── README.md
-├── Code/
+├── code/
 │       ├── main.py
 │       ├── store.py
 │       ├── investor.py
@@ -80,7 +80,7 @@ CECS343Project/
 │       ├── financialreporting.py
 │       ├── security.py
 │       ├── securitymanagement.py
-│       ├── visitortracking.py
+│       └── visitortracking.py
 
 
 ## How to Run
