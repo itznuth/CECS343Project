@@ -63,15 +63,13 @@ CECS343Project/
 │       └── main.py
 │       ├── store.py
 │       ├── investor.py
-│       ├── customer.py
 │       ├── manager.py
 │       ├── tenant.py
 │       ├── rentalpayment.py
 │       ├── facilitymaintenance.py
 │       ├── financialreporting.py
 │       ├── security.py
-│       ├── securitymanagement.py
-│       └── visitortracking.py
+│       └── securitymanagement.py
 ```
 
 
