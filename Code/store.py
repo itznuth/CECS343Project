@@ -7,10 +7,10 @@ class Store:
         rent_amount (float): The monthly rent amount for the store.
     """
 
-    def __init__(self, number: int, floor: int, rent_amount: float,tenant:str="Vacant"):
+    def __init__(self, number: int, floor: int, rent_amount: float, tenant: str = "Vacant"):
         self.number = number
         self.floor = floor
-        self.rent_amount = rent_amount
+        self.rent_amount = rent_amount 
         self.tenant = tenant
 
     def set_number(self, number: int) -> None:
