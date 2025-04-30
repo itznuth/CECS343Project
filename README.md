@@ -123,15 +123,15 @@ TENANT MANAGEMENT
 5. Back
 Choose: 
 ```
+
 <Example actions: View All Tenants->4>
+```text
 ALL TENANTS:
 Name: Fashion Store
 Store: 101
 Lease: 2023-01-01 to 2024-01-01
 Contact: contact@fashion.com
-.
-.
-.
+```
 
 
 
