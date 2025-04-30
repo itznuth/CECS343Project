@@ -70,8 +70,7 @@ This project allows users to easily manage and organize important records throug
 CECS343Project/
 ├── README.md
 ├── code/
-│   └── main/
-│       ├── main.py
+│       └── main.py
 │       ├── store.py
 │       ├── investor.py
 │       ├── customer.py
