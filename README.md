@@ -93,7 +93,7 @@ CECS343Project/
 
 2. Run the main Python file:
  ```bash
-  python3 main.py
+ python3 main.py
 
 4. You will first see a login prompt:
 ```text
