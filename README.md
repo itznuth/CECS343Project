@@ -86,8 +86,10 @@ CECS343Project/
 
 
 ## How to Run
-1. Open your terminal and navigate to the project directory:
-cd CECS343Project/Code
+1. Open your terminal,clone the repository and navigate to the project directory:
+   ```bash
+   git clone https://github.com/itznuth/CECS343Project.git
+   cd CECS343Project/code
 
 2. Run the main Python file:
 python3 main.py
