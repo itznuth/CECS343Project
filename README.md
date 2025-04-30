@@ -114,7 +114,7 @@ Username: the location assigned to the security staff
 
 Password: the word "security"
 
-<Example actions: Login to Admin>
+<Example actions: Login to "Admin">
 
 4. After logging in, follow the interactive menu to use various features:
 ```text
