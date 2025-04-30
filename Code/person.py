@@ -1,27 +1,24 @@
 class Person:
-    """Represents a person.
+    """Base class representing a person with basic contact information.
 
     Attributes:
-        name (str): Stores the name of the tenant.
-        contact_information (str): The tenant's contact details.
-
-    Methods:
-        set_name(name: str) -> None: Sets the name of the tenant.
-        set_contact_information(contact_information: str) -> None: Assigns the tenant’s contact information.
+        name (str): The person's name.
+        contact_information (str): Contact details.
     """
 
-    def __init__(self, name="", contact_information=""):
+    def __init__(self, name: str = "", contact_information: str = ""):
         self.name = name
         self.contact_information = contact_information
 
-    def set_name(self, name):
+    def set_name(self, name: str) -> None:
+        if not name.strip():
+            raise ValueError("Name cannot be empty")
         self.name = name
 
-    def set_contact_information(self, contact_information):
-        self.contact_information = contact_information
+    def set_contact_information(self, contact: str) -> None:
+        if not contact.strip():
+            raise ValueError("Contact information cannot be empty")
+        self.contact_information = contact
 
-    def get_name(self):
-        return self.name
-
-    def get_contact_information(self):
-        return self.contact_information
+    def __str__(self):
+        return f"{self.name} | Contact: {self.contact_information}"
