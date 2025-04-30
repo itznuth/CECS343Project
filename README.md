@@ -92,9 +92,10 @@ CECS343Project/
    cd CECS343Project/code
 
 2. Run the main Python file:
-python3 main.py
+ ```bash
+  python3 main.py
 
-3. You will first see a login prompt:
+4. You will first see a login prompt:
 ```text
 === Mall Management System ===
 1. Login
