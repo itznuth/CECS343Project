@@ -6,59 +6,59 @@ This project allows users to easily manage and organize important records throug
 
 ## Features
 
--Store Management
+-**Store Management**
 
-  Add and manage store number, floor, and rent
+  -Add and manage store number, floor, and rent
 
-  Export all store data to a text file
+  -Export all store data to a text file
 
--Investor Management
+-**Investor Management**
 
-  Register investors and store their contact information
+  -Register investors and store their contact information
 
--Customer Management
+-**Customer Management**
 
-  Add new customers to the system
+  -Add new customers to the system
 
--Manager Management
+-**Manager Management**
 
-  Register mall managers with employee ID and contact details
+  -Register mall managers with employee ID and contact details
 
--Facility Maintenance
+-**Facility Maintenance**
 
-  Create maintenance requests
+  -Create maintenance requests
 
-  Export maintenance request logs to a text file
+  -Export maintenance request logs to a text file
 
--Security Management
+-**Security Management**
 
-  Log and manage security incidents
+  -Log and manage security incidents
 
-  Export security logs to a text file
+  -Export security logs to a text file
 
--Financial Reporting
+-**Financial Reporting**
 
-  Generate financial reports using revenue and sales data
+  -Generate financial reports using revenue and sales data
 
--Tenant Management
+-**Tenant Management**
 
-  Add tenants and manage lease terms and store assignments
+  -Add tenants and manage lease terms and store assignments
 
--Rental Payment Management
+-**Rental Payment Management**
 
-  Record rental payments and track their status 
+  -Record rental payments and track their status 
 
-  Export rental payment records to a text file
+  -Export rental payment records to a text file
 
--Visitor Tracking
+-**Visitor Tracking**
 
-  Track mall visitor count (increment/decrement)
+  -Track mall visitor count (increment/decrement)
 
-  Log entry times for visitor tracking
+  -Log entry times for visitor tracking
 
--Report Exporting
+-**Report Exporting**
 
-  Export various records (stores, maintenance, security, payments) to text files
+  -Export various records (stores, maintenance, security, payments) to text files
 
 
 
