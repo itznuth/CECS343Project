@@ -90,6 +90,29 @@ cd CECS343Project/code
 2. Exit
 Choose: 
 ```
+-**Admin**
+
+Username: admin
+
+Password: admin
+
+-**Manager**
+
+Username: the manager’s name
+
+Password: the manager’s contact information
+
+-**Tenant**
+
+Username: the tenant’s name
+
+Password: the tenant’s contact information
+
+-**Security**
+
+Username: the location assigned to the security staff
+
+Password: the word "security"
 
 4. After logging in, follow the interactive menu to use various features:
 ```text
