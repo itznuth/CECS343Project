@@ -111,7 +111,7 @@ ADMIN DASHBOARD
 11. Logout
 Choose: 
 ```
-<Example actions: Manage Tenants->7>
+<Example actions: Manage Tenants ->7>
 
 5. After Choosing number, follow the interactive menu to use various features:
 ```text
@@ -124,7 +124,7 @@ TENANT MANAGEMENT
 Choose: 
 ```
 
-<Example actions: View All Tenants->4>
+<Example actions: View All Tenants ->4>
 ```text
 ALL TENANTS:
 Name: Fashion Store
