@@ -525,12 +525,22 @@ class DataManager:
     # Security Management
     def add_security(self):
         print("\nAdd Security Log")
-        location = input("Enter security location: ")
-        incident = input("Enter incident details: ")
-        security = Security(location)
-        security.log_incident(incident)
-        self.security_logs.append(security)
-        print(f"Security incident at '{location}' logged.")
+        while True:
+            location = input("Enter security location: ").strip()
+            if not location:
+                print("Error: Location cannot be empty!")
+                continue
+
+            incident = input("Enter incident details: ").strip()
+            if not incident:
+                print("Error: Incident details cannot be empty!")
+                continue
+
+            security = Security(location)
+            security.log_incident(incident)
+            self.security_logs.append(security)
+            print(f"Security incident at '{location}' logged.")
+            break
 
     def add_security_report(self):
         print("\nAdd Security Report")
