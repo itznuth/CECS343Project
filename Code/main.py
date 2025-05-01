@@ -247,6 +247,8 @@ class MallManagementSystem:
             choice = input("Choose: ")
 
             if choice == "1":
+                if not self.data_manager.add_security():
+                    print("Failed to log incident. Please try again.")
                 self.data_manager.add_security()
             elif choice == "2":
                 self.data_manager.add_security_report()
