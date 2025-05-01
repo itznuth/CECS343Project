@@ -13,20 +13,23 @@ class MallManagementSystem:
     def __init__(self):
         # Initialize with sample data
         self.data_manager = DataManager(
-            stores=[Store(101, 1, 5000), Store(202, 2, 7500)],
+            stores=[
+                Store(1, 1, 5000, "Fashion Store"),  
+                Store(2, 1, 7500, "Vacant")          
+            ],
             investors=[Investor("Anthony", "anthony@example.com")],
             managers=[Manager("John Smith", 1001, "John", "Operations", 2)],
             maintenance_requests=[],
             tenants=[
                 Tenant(
                     name="Fashion Store",
-                    space_number=101,
+                    space_number=1,  
                     lease_start_date="2023-01-01",
                     lease_end_date="2024-01-01",
                     contact_information="contact@fashion.com"
                 )
             ],
-            rental_payments=[RentalPayment(5000, "2023-06-01", 101, "completed")],
+            rental_payments=[RentalPayment(5000, "2023-06-01", 1, "completed")],
             financial_reports=[],
             security_logs=[Security("Main Entrance")]
         )
