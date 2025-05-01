@@ -143,7 +143,7 @@ Choose:
 ```text
 ALL TENANTS:
 Name: Fashion Store
-Store: 101
+Store: 1
 Lease: 2023-01-01 to 2024-01-01
 Contact: contact@fashion.com
 ```
