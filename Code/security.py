@@ -15,8 +15,10 @@ class Security:
     def log_incident(self, incident_details: str) -> None:
         """Records a security incident."""
         if not incident_details.strip():
-            raise ValueError("Incident details cannot be empty")
+            print("Error: Incident details cannot be empty")
+            return False  
         self.incident_log.append(incident_details)
+        return True  
 
     def add_report(self, report: str) -> None:
         """Adds a detailed security report."""
