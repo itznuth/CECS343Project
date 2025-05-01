@@ -5,6 +5,7 @@ class Store:
         number (int): The unique identifier or number of the store.
         floor (int): The floor on which the store is located.
         rent_amount (float): The monthly rent amount for the store.
+        tenant (str): The name of the tenant occupying the store (or "Vacant" if empty)
     """
 
     def __init__(self, number: int, floor: int, rent_amount: float, tenant: str = "Vacant"):
@@ -36,6 +37,10 @@ class Store:
     def get_number(self) -> int:
         """Retrieves the store number."""
         return self.number
+
+    def set_tenant(self, tenant_name: str) -> None:
+        """Sets the tenant name for this store."""
+        self.tenant = tenant_name
 
     def get_store_info(self) -> str:
         """Returns formatted store information as a string."""
