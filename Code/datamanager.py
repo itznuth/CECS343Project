@@ -257,18 +257,32 @@ class DataManager:
         print("\nAdd New Tenant")
         try:
             name = input("Enter tenant name: ")
-            space_number = int(input("Enter store number: "))  
+            space_number = int(input("Enter store number: "))
+
+            # Check if store exists and is vacant
+            store = next((s for s in self.stores if s.number == space_number), None)
+            if not store:
+                print(f"Error: Store #{space_number} does not exist!")
+                return
+            if store.tenant != "Vacant":
+                print(f"Error: Store #{space_number} is already occupied by {store.tenant}!")
+                return
+
             start_date = input("Enter lease start date (YYYY-MM-DD): ")
             end_date = input("Enter lease end date (YYYY-MM-DD): ")
             contact = input("Enter contact information: ")
+
             self.tenants.append(Tenant(
                 name=name,
-                space_number=space_number,  
+                space_number=space_number,
                 lease_start_date=start_date,
                 lease_end_date=end_date,
                 contact_information=contact
             ))
-            print(f"Tenant {name} added successfully!")
+
+            # Update store tenant status
+            store.set_tenant(name)
+            print(f"Tenant {name} added successfully to Store #{space_number}!")
         except ValueError:
             print("Invalid input.")
 
@@ -278,7 +292,7 @@ class DataManager:
             if tenant.name == name:
                 print(f"\nCurrent Tenant Details:")
                 print(f"Name: {tenant.name}")
-                print(f"Store: {tenant.space_number}")  
+                print(f"Store: {tenant.space_number}")
                 print(f"Lease Start: {tenant.lease_start_date}")
                 print(f"Lease End: {tenant.lease_end_date}")
                 print(f"Contact: {tenant.contact_information}")
@@ -290,11 +304,42 @@ class DataManager:
                     new_end = input("Enter new lease end date (YYYY-MM-DD, press Enter to keep current): ")
                     new_contact = input("Enter new contact (press Enter to keep current): ")
 
-                    tenant.name = new_name if new_name else tenant.name
-                    tenant.space_number = int(new_space) if new_space else tenant.space_number  
-                    tenant.lease_start_date = new_start if new_start else tenant.lease_start_date
-                    tenant.lease_end_date = new_end if new_end else tenant.lease_end_date
-                    tenant.contact_information = new_contact if new_contact else tenant.contact_information
+                    old_store_number = tenant.space_number
+
+                    # Find current store
+                    old_store = next((s for s in self.stores if s.number == old_store_number), None)
+
+                    if new_space:  # If changing stores
+                        new_space_number = int(new_space)
+                        new_store = next((s for s in self.stores if s.number == new_space_number), None)
+
+                        if not new_store:
+                            print(f"Error: Store #{new_space_number} doesn't exist!")
+                            return
+                        if new_store.tenant != "Vacant":
+                            print(f"Error: Store #{new_space_number} is already occupied by {new_store.tenant}!")
+                            return
+
+                        # Update tenant's store number
+                        tenant.space_number = new_space_number
+
+                        # Update store tenant statuses
+                        if old_store:
+                            old_store.set_tenant("Vacant")
+                        new_store.set_tenant(new_name if new_name else tenant.name)
+
+                    # Update other fields
+                    if new_name:
+                        tenant.name = new_name
+                        # Update store tenant name if not changing stores
+                        if not new_space and old_store:
+                            old_store.set_tenant(new_name)
+                    if new_start:
+                        tenant.lease_start_date = new_start
+                    if new_end:
+                        tenant.lease_end_date = new_end
+                    if new_contact:
+                        tenant.contact_information = new_contact
 
                     print(f"\nTenant updated successfully!")
                 except ValueError:
@@ -316,6 +361,10 @@ class DataManager:
             choice = int(input("\nEnter the number of the tenant to delete: "))
             if 1 <= choice <= len(self.tenants):
                 deleted_tenant = self.tenants.pop(choice - 1)
+                # Mark store as vacant
+                for store in self.stores:
+                    if store.number == deleted_tenant.space_number:
+                        store.set_tenant("Vacant")
                 print(f"\nTenant '{deleted_tenant.name}' deleted successfully!")
             else:
                 print("Invalid selection. Please enter a valid number.")
