@@ -537,10 +537,11 @@ class DataManager:
                 continue
 
             security = Security(location)
-            security.log_incident(incident)
-            self.security_logs.append(security)
-            print(f"Security incident at '{location}' logged.")
-            break
+            if security.log_incident(incident):  
+                self.security_logs.append(security)
+                print(f"Security incident at '{location}' logged.")
+                return True
+            return False
 
     def add_security_report(self):
         print("\nAdd Security Report")
